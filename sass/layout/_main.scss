@@ -1,0 +1,75 @@
+html{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+body{
+    background-color: $LightGrayishBlue;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    padding: 5em 0;
+}
+// Main Section
+main{
+    width: 80%;
+    max-width: 95em;
+    margin: 0 auto;
+
+    .profile-pic{
+        border-radius: 50%;
+    }
+    .cards {
+        @include flex(column, none);
+        gap: 2.1em;
+        // Desktop Size
+        @media screen and (min-width:1250px) {
+            @include grid;
+        }
+        & > div{
+            box-shadow: .1em .1em .5em .1em rgba(59, 59, 59, 0.24);
+        } 
+        .card__user{
+            @include flex(row, none);
+            align-items: center;
+            gap: .8em;
+
+            &-info{
+                z-index: 1;
+            }
+            .svg{
+                position: absolute;
+                right: 3em;
+                opacity: .7;
+            }
+        }
+        .card-1{
+            @include card($LightGrayishBlue, $violet);
+            position: relative;
+            grid-area: card-1;
+        }
+        .card-2{
+            @include card($LightGrayishBlue, $darkGrayishBlue);
+            grid-area: card-2;
+        }
+        .card-3{
+            @include card($darkGrayishBlue, $White);
+            grid-area: card-3;
+        }
+        .card-4{
+            @include card($White, $VeryDarkBlackishBlue);
+            grid-area: card-4;
+        }
+        .card-5{
+            @include card($darkGrayishBlue, $White);
+            grid-area: card-5;
+        }
+
+        .card__user-verified{
+            opacity: $verifiedUser;
+        }
+        .card__content-quote{
+            font-weight: 500;
+            opacity: $quotesText;
+        }
+    }
+    // Animations
+}

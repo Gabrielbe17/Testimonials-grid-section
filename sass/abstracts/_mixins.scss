@@ -1,0 +1,35 @@
+
+// Cards
+@mixin card ($color, $bg-color){
+    padding: 1.5em;
+    border-radius: .65em;
+    color: $color;
+    background-color: $bg-color;
+    animation: slideFromTop 1.5s ease;
+    @include top();
+}
+// Grid Layout
+@mixin grid{
+    display: grid;
+    gap: 2.5em;
+    grid-template-columns:repeat(4, 1fr) ;
+    grid-template-areas: "card-1 card-1 card-2 card-5"
+                         "card-3 card-4 card-4 card-5";
+} 
+// Flex Layout
+@mixin flex($flexDirection, $Justify){
+    display: flex;
+    flex-direction: $flexDirection;
+    justify-content: $Justify;
+}
+// Animation
+@mixin top {
+    @keyframes slideFromTop{
+        0%{
+            transform: translateY(-100%);
+        }
+        100%{
+            transform: translateY(0);
+        }
+    }
+}
